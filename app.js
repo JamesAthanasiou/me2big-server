@@ -1,22 +1,26 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const express = require('express');
+const express = require("express");
 const app = express();
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const db = require ('./models');
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const db = require ("./models");
+const authRoutes = require("routes/auth");
+const { loginRequired, ensureCorrectUser } = require("./utils/auth");
 
 const PORT = process.env.PORT || 8081;
 
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use("/api/auth", authRoutes);
+
 app.use((req, res, next) => {
-  let err = new Error('Not Found');
+  let err = new Error("Not Found");
   err.status = 404;
   next(err);
 });
 
 app.listen(PORT, () => {
-  console.log('Server has started');
+  console.log("Server has started");
 });
