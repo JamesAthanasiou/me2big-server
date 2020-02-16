@@ -19,13 +19,43 @@ const userSchema = new mongoose.Schema({
   },
   // Weight data is an array of objects that have a weight and date fiel
   weightData: [{
-    weight: {
-      type: Number,
-    },
-    date: {
-      type: Date
-    }
-  }]
+    weight: Number,
+    date: Date
+  }],
+  // Daily nutritional count
+  dailyNutritionCount: [{
+    calories: Number,
+    carbohydrate: Number,
+    protein: Number,
+    fat: Number,
+    date: Date
+  }],
+  // Daily nutritional target
+  dailyNutritionTarget: {
+    calories: Number,
+    carbohydrate: Number,
+    protein: Number,
+    fat: Number
+  },
+  // Daily food list
+  dailyFoodList: [{
+    name: String,
+    calories: Number,
+    carbohydrate: Number,
+    protein: Number,
+    fat: Number,
+    meal: String
+  }],
+  
+  // A cache for frequent foods
+  frequentFoodList: [{
+    name: String,
+    calories: Number,
+    carbohydrate: Number,
+    protein: Number,
+    fat: Number,
+    meal: String
+    }]
 });
 
 // If password is modified, hash pasword
