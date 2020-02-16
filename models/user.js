@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  // Weight data is an array of objects that have a weight and date fiel
+  // Weight data point
   weightData: [{
     weight: Number,
     date: Date
@@ -44,6 +44,7 @@ const userSchema = new mongoose.Schema({
     carbohydrate: Number,
     protein: Number,
     fat: Number,
+    date: Date,
     meal: String
   }],
   
