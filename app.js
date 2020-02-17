@@ -8,13 +8,15 @@ const db = require("./models");
 const errorHandler = require("./utils/error");
 const authRoutes = require("./routes/auth");
 const { loginRequired, ensureCorrectUser } = require("./utils/auth");
+const foodRoutes = require("./routes/food");
 
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 8082;
 
 app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/food", foodRoutes);
 
 app.use((req, res, next) => {
   let err = new Error("Not Found");
