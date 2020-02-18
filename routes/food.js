@@ -6,6 +6,6 @@ const { addFood } = require("../services/food");
 // prefix = /api/user/
 
 router.route("/searchfoods").post(searchFoods); 
-//router.post("/addfood", addFood);
+router.route("/getfooddata").post(getFoodData);
 
 module.exports = router;
