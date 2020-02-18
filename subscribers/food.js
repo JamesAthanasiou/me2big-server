@@ -1,3 +1,8 @@
+// TODO:
+// Foods that are not branded do not have a nutrition label, and as such do not give info back 
+// in the order shown in get food data. Must read documentation of api to have an alternative
+// method for generic foods, like eggs.
+
 const axios = require("axios");
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.get['Content-Type'] = 'application/json';
@@ -26,7 +31,7 @@ exports.searchFoods = async function(req, res, next){
   }
 }
 
-//427439
+// Only works for foods with a label. Does not yet work for generic foods
 exports.getFoodData = async function(req, res, next){
   const fdcId = req.body.fdcId;
   const url = `https://api.nal.usda.gov/fdc/v1/${fdcId}?api_key=${process.env.FOOD_KEY}`;

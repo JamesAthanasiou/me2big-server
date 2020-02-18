@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/api/auth", authRoutes);
-app.use("/api/food", foodRoutes);
+app.use("/api/users/:id", foodRoutes);
 
 app.use((req, res, next) => {
   let err = new Error("Not Found");
